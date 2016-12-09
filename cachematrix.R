@@ -20,13 +20,13 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Write a short comment describing this function
 
-cacheSolve <- function(x, ...) {
-  inv <- x$getinv()
-  if(!is.null(inv)) {
+cacheSolve <- function(x, ...) { #calculates the inverse of the matrix given by makeCacheMatrix
+  inv <- x$getinv()  #gets the value 
+  if(!is.null(inv)) { #if the value is not NULL, the function takes it from the cache
     message("getting cached data")
     return(inv)
   }
-  data <- x$get()
+  data <- x$get()   #if inv contains a NULL value, cacheSolve calculates it
   m <- solve(data, ...)
   x$setinv(m)
   m
